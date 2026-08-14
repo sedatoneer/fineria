@@ -123,7 +123,7 @@ export function LoginPage() {
       <div className="relative z-10 flex w-full flex-col justify-center px-6 py-10 sm:px-8 sm:py-12 md:px-16 lg:w-[46%] xl:px-20">
         <motion.div {...fadeUp(0)} className="mb-10 flex items-center justify-between gap-4">
           <Link to="/">
-            <Logo size={34} showText textColor="#F8FAFC" />
+            <Logo size={34} showText textColor="#F8FAFC" variant="onDark" />
           </Link>
           <LanguageToggle variant="dark" layoutId="login-lang-pill" compact />
         </motion.div>

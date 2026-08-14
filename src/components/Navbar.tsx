@@ -94,8 +94,20 @@ export function Navbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-5 sm:gap-4 sm:px-6">
           <Link to="/" onClick={() => setMobileOpen(false)} className="relative z-10 shrink-0">
-            <Logo size={30} showText={true} className="sm:hidden" textColor={inkStrong} />
-            <Logo size={34} showText={true} className="hidden sm:flex" textColor={inkStrong} />
+            <Logo
+              size={30}
+              showText={true}
+              className="sm:hidden"
+              textColor={inkStrong}
+              variant={lightInk ? 'onDark' : 'onLight'}
+            />
+            <Logo
+              size={34}
+              showText={true}
+              className="hidden sm:flex"
+              textColor={inkStrong}
+              variant={lightInk ? 'onDark' : 'onLight'}
+            />
           </Link>
 
           <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">

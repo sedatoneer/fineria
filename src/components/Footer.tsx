@@ -28,19 +28,18 @@ function InstagramIcon({ size = 16, style }: SocialIconProps) {
   );
 }
 
-function YoutubeIcon({ size = 16, style }: SocialIconProps) {
+function XIcon({ size = 16, style }: SocialIconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={style}>
-      <path d="M2.5 8.5a3 3 0 0 1 3-3h13a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-13a3 3 0 0 1-3-3v-7Z" />
-      <path d="M10 9.5v5l4.5-2.5-4.5-2.5Z" fill="currentColor" stroke="none" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={style} aria-hidden>
+      <path d="M18.244 2H21.5l-7.5 8.57L22.5 22h-6.59l-5.16-6.74L5.2 22H1.94l8.03-9.17L1.5 2h6.75l4.66 6.18L18.244 2Zm-1.16 18.12h1.83L7.02 3.78H5.06l12.024 16.34Z" />
     </svg>
   );
 }
 
 const socials = [
-  { icon: LinkedinIcon, label: 'LinkedIn', href: '#' },
-  { icon: InstagramIcon, label: 'Instagram', href: '#' },
-  { icon: YoutubeIcon, label: 'YouTube', href: '#' },
+  { icon: LinkedinIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/company/fineria-finance/home/' },
+  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/fineriafinance/' },
+  { icon: XIcon, label: 'X', href: '#' },
 ];
 
 export function Footer() {
@@ -73,16 +72,22 @@ export function Footer() {
               {t.footer.blurb}
             </p>
             <div className="flex gap-2">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-white border border-[var(--border-subtle)] flex items-center justify-center hover:border-[var(--border-strong)] transition-colors"
-                >
-                  <s.icon size={16} style={{ color: 'var(--ink-500)' }} />
-                </a>
-              ))}
+              {socials.map((s) => {
+                const external = s.href.startsWith('http');
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    aria-label={s.label}
+                    {...(external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
+                    className="w-9 h-9 rounded-lg bg-white border border-[var(--border-subtle)] flex items-center justify-center hover:border-[var(--border-strong)] transition-colors"
+                  >
+                    <s.icon size={16} style={{ color: 'var(--ink-500)' }} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
